@@ -112,7 +112,7 @@ set_location_assignment PIN_W5 -to AUDIO_R
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to AUDIO_L
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to AUDIO_R
 
-# MIDI ??????
+# MIDI (used with Neptuno MIDI addon, BD signals are I2S inputs from MIDI neptuno module)
 #set_location_assignment PIN_J9 -to MIDI_OUT
 #set_location_assignment PIN_P9 -to WSBD
 #set_location_assignment PIN_R9 -to CLKBD

@@ -23,17 +23,20 @@ module Next186_SoC(
 	output VGA_HSYNC,
 
 	output SDLED,
+
 	input BTN_SOUTH,
 	input BTN_WEST,
+
 	inout PS2_CLKA,
 	inout PS2_DATA,
 	inout PS2_CLKB,
 	inout PS2_DATB,
+
 	output AUDIO_L,
 	output AUDIO_R,
 
 	output SD_nCS,
-	input SD_DO,
+	input  SD_DO,
 	output SD_CK,
 	output SD_DI,
 	//
@@ -42,7 +45,7 @@ module Next186_SoC(
 	output	SD_D0_DIR,
 	output	SD_D123_DIR,
 	//
-	input RX_EXT,
+	input  RX_EXT,
 	output TX_EXT,
 
 //	output MIDI_OUT,

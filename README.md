@@ -8,9 +8,8 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 * VGA 444 video output is available through GPIO (see pinout below). 
   * Tested with PS2 & R2R VGA adapter (333)  https://www.waveshare.com/vga-ps2-board.htm
 * Line out (3.5 jack green connector) and HDMI audio output
-* ~~PWM audio is available through GPIO (see pinout below)~~  
-
-  
+* PWM audio is available through GPIO
+* Requires an special SD card with BIOS  flashed into it (see notes below)
 
 **Additional hardware required**:
 
@@ -20,7 +19,6 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 **Versions**:
 
 - current version: 0.2
-- ~~see changelog in top level file deca/nes_deca.sv~~
 
 **Compiling:**
 
@@ -31,11 +29,21 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 
 ![pinout_deca](pinout_deca.png)
 
-Audio not connected as the diagram because of the 3 pins memory change.
+Audio SigmaDelta not connected as the diagram because of the 3 pins memory change.  See pins at Next186_SoC.qsf.
+
+Joystick not available.
 
 **Others:**
 
 * Button KEY0 is a reset button
+
+
+
+### SD card
+
+This core needs it's own SD card inserted with the BIOS flashed in the last 8 kB and first 64 sectors.
+
+[Freedos.img](Freedos.img) includes FreeDOS and the BIOS needed. Flash it into an SD (SDHC type, 4 GB or more).
 
 ### STATUS
 
