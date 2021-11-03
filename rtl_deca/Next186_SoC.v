@@ -1,5 +1,11 @@
+// DECA port by Somhic & Shaeon (03/11/21) -- https://github.com/DECAfpga/Next186
 // Next186 SoC NeptUNO port by DistWave -- https://github.com/neptuno-fpga/Next186_SoC
-// DECA port by Somhic & Shaeon
+//
+// v0.1 initial release, just vga and no naudio
+// v0.2 added I2S sound to line out and hdmi. Added HDMI output
+// v0.3 clearing and reorganization of files
+//
+//
 
 module Next186_SoC(
 
@@ -147,15 +153,6 @@ module Next186_SoC(
 	assign DRAM_CKE = 1'b1;
 	
 	assign SDLED = ~LEDS[1];
-
-	// wire SDR_CLK;
-	// dd_buf sdrclk_buf
-	// (
-	// 	.datain_h(1'b1),
-	// 	.datain_l(1'b0),
-	// 	.outclock(SDR_CLK),
-	// 	.dataout(DRAM_CLK)
-	// );
 
 	system sys_inst
 	(

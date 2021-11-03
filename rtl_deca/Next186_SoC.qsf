@@ -388,59 +388,59 @@ set_instance_assignment -name FAST_INPUT_REGISTER ON -to DRAM_DQ[15]
 
 #============================================================
 
-set_global_assignment -name VERILOG_FILE next186_soc.v
+set_global_assignment -name VERILOG_FILE Next186_SoC.v
 set_global_assignment -name SDC_FILE Next186_SoC.sdc
-set_global_assignment -name SOURCE_FILE Next186_SoC.qsf
-
-set_global_assignment -name VHDL_FILE midi/simple_uart.vhd
-set_global_assignment -name VERILOG_FILE midi/mpu401.v
-set_global_assignment -name VERILOG_FILE midi/i2s_decoder.v
-set_global_assignment -name VHDL_FILE I2S/dac_if.vhd
-set_global_assignment -name VHDL_FILE I2S/audio_top.vhd
-set_global_assignment -name VERILOG_FILE NextZ80/NextZ80Reg.v
-set_global_assignment -name VERILOG_FILE NextZ80/NextZ80CPU.v
-set_global_assignment -name VERILOG_FILE NextZ80/NextZ80ALU.v
-set_global_assignment -name VERILOG_FILE opl3seq.v
-set_global_assignment -name VERILOG_FILE opl3.v
-set_global_assignment -name VERILOG_FILE i2c_master_byte.v
-set_global_assignment -name VERILOG_FILE soundwave.v
-set_global_assignment -name QIP_FILE q16.qip
-set_global_assignment -name QIP_FILE datamem16.qip
-set_global_assignment -name QIP_FILE instrmem.qip
-set_global_assignment -name QIP_FILE qdsp.qip
-set_global_assignment -name VERILOG_FILE DSP32.v
-set_global_assignment -name VERILOG_FILE UART_8250.v
-set_global_assignment -name VERILOG_FILE rs232_phy.v
-set_global_assignment -name VERILOG_FILE q1.v
-set_global_assignment -name QIP_FILE dcm_cpu.qip
-set_global_assignment -name VERILOG_FILE Next186/Next186_Regs.v
-set_global_assignment -name VERILOG_FILE Next186/Next186_CPU.v
-set_global_assignment -name VERILOG_FILE Next186/Next186_BIU_2T_delayread.v
-set_global_assignment -name VERILOG_FILE Next186/Next186_ALU.v
-set_global_assignment -name VERILOG_FILE vga.v
-set_global_assignment -name VERILOG_FILE unit186.v
-set_global_assignment -name VERILOG_FILE timer8253.v
-set_global_assignment -name VERILOG_FILE sdram.v
-set_global_assignment -name VERILOG_FILE PIC_8259.v
-set_global_assignment -name VERILOG_FILE KB_8042.v
-set_global_assignment -name VERILOG_FILE ddr_186.v
-set_global_assignment -name VERILOG_FILE cache_controller.v
 set_global_assignment -name QIP_FILE dcm.qip
-set_global_assignment -name QIP_FILE fifo.qip
-set_global_assignment -name QIP_FILE DAC_SRAM.qip
-set_global_assignment -name MIF_FILE font.mif
-set_global_assignment -name QIP_FILE sr_font.qip
-set_global_assignment -name MIF_FILE cache_bootload.mif
-set_global_assignment -name QIP_FILE cache.qip
-set_global_assignment -name QIP_FILE dd_buf.qip
-set_global_assignment -name QIP_FILE opl3_mem.qip
-set_global_assignment -name QIP_FILE opl3_in.qip
+set_global_assignment -name QIP_FILE dcm_cpu.qip
 
-#set_global_assignment -name QIP_FILE rtl_deca/pll/pll.qip
-set_global_assignment -name VERILOG_FILE rtl_deca/audio/AUDIO_SPI_CTL_RD.v
-set_global_assignment -name VERILOG_FILE rtl_deca/audio/SPI_RAM.v
-set_global_assignment -name VERILOG_FILE rtl_deca/hdmi/I2C_Controller.v
-set_global_assignment -name VERILOG_FILE rtl_deca/hdmi/I2C_HDMI_Config.v
+set_global_assignment -name VHDL_FILE ../midi/simple_uart.vhd
+set_global_assignment -name VERILOG_FILE ../midi/mpu401.v
+set_global_assignment -name VERILOG_FILE ../midi/i2s_decoder.v
+set_global_assignment -name VHDL_FILE ../I2S/dac_if.vhd
+set_global_assignment -name VHDL_FILE ../I2S/audio_top.vhd
+set_global_assignment -name VERILOG_FILE ../NextZ80/NextZ80Reg.v
+set_global_assignment -name VERILOG_FILE ../NextZ80/NextZ80CPU.v
+set_global_assignment -name VERILOG_FILE ../NextZ80/NextZ80ALU.v
+set_global_assignment -name VERILOG_FILE ../Next186/Next186_Regs.v
+set_global_assignment -name VERILOG_FILE ../Next186/Next186_CPU.v
+set_global_assignment -name VERILOG_FILE ../Next186/Next186_BIU_2T_delayread.v
+set_global_assignment -name VERILOG_FILE ../Next186/Next186_ALU.v
+set_global_assignment -name VERILOG_FILE ../rtl/cache.v
+set_global_assignment -name MIF_FILE ../rtl/cache_bootload.mif
+set_global_assignment -name VERILOG_FILE ../rtl/cache_controller.v
+set_global_assignment -name VERILOG_FILE ../rtl/DAC_SRAM.v
+set_global_assignment -name VERILOG_FILE ../rtl/datamem16.v
+set_global_assignment -name VERILOG_FILE ../rtl/ddr_186.v
+set_global_assignment -name VERILOG_FILE ../rtl/DSP32.v
+set_global_assignment -name VERILOG_FILE ../rtl/fifo.v
+set_global_assignment -name MIF_FILE ../rtl/font.mif
+set_global_assignment -name VERILOG_FILE ../rtl/i2c_master_byte.v
+set_global_assignment -name VERILOG_FILE ../rtl/instrmem.v
+set_global_assignment -name VERILOG_FILE ../rtl/KB_8042.v
+set_global_assignment -name VERILOG_FILE ../rtl/opl3.v
+set_global_assignment -name VERILOG_FILE ../rtl/opl3_in.v
+set_global_assignment -name VERILOG_FILE ../rtl/opl3_mem.v
+set_global_assignment -name VERILOG_FILE ../rtl/opl3seq.v
+set_global_assignment -name VERILOG_FILE ../rtl/PIC_8259.v
+set_global_assignment -name VERILOG_FILE ../rtl/q1.v
+set_global_assignment -name VERILOG_FILE ../rtl/q16.v
+set_global_assignment -name VERILOG_FILE ../rtl/qdsp.v
+set_global_assignment -name VERILOG_FILE ../rtl/rs232_phy.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram.v
+set_global_assignment -name VERILOG_FILE ../rtl/sndfifo.v
+set_global_assignment -name VERILOG_FILE ../rtl/soundwave.v
+set_global_assignment -name VERILOG_FILE ../rtl/sr_font.v
+set_global_assignment -name VERILOG_FILE ../rtl/timer8253.v
+set_global_assignment -name VERILOG_FILE ../rtl/UART_8250.v
+set_global_assignment -name VERILOG_FILE ../rtl/unit186.v
+set_global_assignment -name VERILOG_FILE ../rtl/vga.v
+
+# DECA board specific modules
+#set_global_assignment -name QIP_FILE pll/pll.qip
+set_global_assignment -name VERILOG_FILE audio/AUDIO_SPI_CTL_RD.v
+set_global_assignment -name VERILOG_FILE audio/SPI_RAM.v
+set_global_assignment -name VERILOG_FILE hdmi/I2C_Controller.v
+set_global_assignment -name VERILOG_FILE hdmi/I2C_HDMI_Config.v
 
 
 ##################################
@@ -450,4 +450,5 @@ set_global_assignment -name VERILOG_FILE rtl_deca/hdmi/I2C_HDMI_Config.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

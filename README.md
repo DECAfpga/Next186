@@ -13,17 +13,18 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 
 **Additional hardware required**:
 
-- SDRAM Mister module (old version with 3 pins). ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca) + [3pins](https://github.com/DECAfpga/DECA_board/blob/main/Sdram_mister_deca/README_3pins.md))
+- SDRAM Mister module **(old version with 3 pins).** ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca) + [3pins](https://github.com/DECAfpga/DECA_board/blob/main/Sdram_mister_deca/README_3pins.md))
 - PS/2 Keyboard connected to GPIO  (see pinout below)
 
 **Versions**:
 
-- current version: 0.2
+- See changelog in rtl_deca/Next186_SoC.v
+- current version: 0.3
 
 **Compiling:**
 
-* Load project  Next186_SoC.qpf
-* sof/svf files already included in output_files/
+* Load project  rtl_deca/Next186_SoC.qpf
+* sof/svf files already included in rtl_deca/output_files/
 
 **Pinout connections:**
 
