@@ -13,7 +13,9 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 
 **Additional hardware required**:
 
-- SDRAM Mister module **(old version with 3 pins).** ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca) + [3pins](https://github.com/DECAfpga/DECA_board/blob/main/Sdram_mister_deca/README_3pins.md))
+- SDRAM Mister module.
+  - Tested with 32 MB SDRAM board for MiSTer (extra slim) XS_2.2 ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca))
+  - Tested with an dual memory module v1.3 with 3 pins ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca) + [3pins](https://github.com/DECAfpga/DECA_board/blob/main/Sdram_mister_deca/README_3pins.md)) with a memtest of 140 MHz (another one with 120 MHz hanged when loading games).
 - PS/2 Keyboard connected to GPIO  (see pinout below)
 
 **Versions**:
