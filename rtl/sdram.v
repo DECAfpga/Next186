@@ -154,6 +154,7 @@ module SDRAM_16bit(
 					sdr_BA <= bAddr;
 					if(actBank[bAddr]) // bank active
 						if(actLine[bAddr] == linAddr) begin // line already active
+//							sdr_ADDR[`RowBits-1:0] <= {`RowBits{1'b0}}; // Ensure any unused bits are zero.   //allow using 128MB module (Alastair M.Robinson)
 							sdr_ADDR[10] <= 1'b0; // no auto precharge
 							sdr_ADDR[`ColBits-1:0] <= {colAddr, {`PitchBits{1'b0}}}; 
 							RET <= 7;

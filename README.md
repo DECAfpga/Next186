@@ -14,14 +14,18 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 **Additional hardware required**:
 
 - SDRAM Mister module.
-  - Tested with 32 MB SDRAM board for MiSTer (extra slim) XS_2.2 ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca))
-  - Tested with an dual memory module v1.3 with 3 pins ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca) + [3pins](https://github.com/DECAfpga/DECA_board/blob/main/Sdram_mister_deca/README_3pins.md)) with a memtest of 140 MHz (another one with 120 MHz hanged when loading games).
+  - Tested with 32 MB SDRAM board for MiSTer (extra slim) XS_2.2 ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca)) (sdram clk at 125 MHz -2.5ns  did not work; at 100 MHz -2ns worked, but other testers reported that only worked the 80 MHz -2ns version)
+  - Tested with a dual memory module v1.3 with 3 pins ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca) + [3pins](https://github.com/DECAfpga/DECA_board/blob/main/Sdram_mister_deca/README_3pins.md)) with a memtest of 140 MHz (sdram clk at 100 MHz -1.5 ns worked but after adding Alastair's change in sdram controller to allow 128 MB modules it stopped loading Manhunter 1 game; changed sdram clk to 80MHz -2ns then worked).
+  - Tested with a dual memory module v1.3 with 3 pins ([see connections](https://github.com/SoCFPGA-learning/DECA/tree/main/Projects/sdram_mister_deca) + [3pins](https://github.com/DECAfpga/DECA_board/blob/main/Sdram_mister_deca/README_3pins.md)) with a memtest of 120 MHz (sdram clk 100 MHz -1.5ns hanged when loading games but with sdram clk of 100 MHz -2ns worked).
+  - If you want to use a 128 MB Mister module, edit rtl/sdram.v, uncomment line 157 and compile the project again.
 - PS/2 Keyboard connected to GPIO  (see pinout below)
 
 **Versions**:
 
 - See changelog in rtl_deca/Next186_SoC.v
-- current version: 0.3
+- current version: 0.4   
+  - added line 157 in sdram.v to allow 128 MB modules but left it commented
+  - sdram clock at 80 MHz -2ns phase shift, for better compatibility
 
 **Compiling:**
 

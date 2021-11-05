@@ -3,8 +3,9 @@
 //
 // v0.1 initial release, just vga and no naudio
 // v0.2 added I2S sound to line out and hdmi. Added HDMI output
-// v0.3 clearing and reorganization of files
-//
+// v0.3 clearing and reorganization of files, sdram clock at 100 MHz -1.5ns phase shift
+// v0.4 added line 157 in sdram.v to allow 128 MB modules but left commented. Uncomment it if you need to use a 128 MB module.
+//      sdram clock at 80 MHz -2ns phase shift, for better compatibility
 //
 
 module Next186_SoC(
