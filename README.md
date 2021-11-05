@@ -4,10 +4,9 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 
 **Features:**
 
-* HDMI video output
+* HDMI video output  (special resolution will not work on all LCD monitors)
 * VGA 444 video output is available through GPIO (see pinout below). 
-  * Tested with PS2 & R2R VGA adapter (333)  https://www.waveshare.com/vga-ps2-board.htm
-* Line out (3.5 jack green connector) and HDMI audio output
+* Audio Line out (3.5 jack green connector) and HDMI audio output
 * PWM audio is available through GPIO
 * Requires an special SD card with BIOS  flashed into it (see notes below)
 
