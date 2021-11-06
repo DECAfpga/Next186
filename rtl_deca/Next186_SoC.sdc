@@ -27,70 +27,27 @@ derive_pll_clocks
 derive_clock_uncertainty
 
 
+#**************************************************************
+# Set sdram_clk
+#**************************************************************
+
+set sdram_clk "sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]"
+                                    
 
 #**************************************************************
 # Set Input Delay
 #**************************************************************
 
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[0]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[1]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[2]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[3]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[4]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[5]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[6]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[7]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[8]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[9]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[10]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[11]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[12]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[13]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[14]}]
-set_input_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[2]}]  3.000 [get_ports {DRAM_DQ[15]}]
+set_input_delay -clock [get_clocks $sdram_clk] -reference_pin [get_ports {DRAM_CLK}] -max 6.5ns [get_ports DRAM_DQ[*]]
+set_input_delay -clock [get_clocks $sdram_clk] -reference_pin [get_ports {DRAM_CLK}] -min 3.5 [get_ports DRAM_DQ[*]]
 
 
 #**************************************************************
 # Set Output Delay
 #**************************************************************
 
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[0]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[1]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[2]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[3]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[4]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[5]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[6]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[7]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[8]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[9]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[10]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[11]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_ADDR[12]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_BA[0]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_BA[1]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_CAS_N}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQM[0]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQM[1]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[0]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[1]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[2]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[3]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[4]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[5]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[6]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[7]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[8]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[9]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[10]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[11]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[12]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[13]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[14]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_DQ[15]}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_RAS_N}]
-set_output_delay -add_delay  -clock [get_clocks {sys_inst|dcm_system|altpll_component|auto_generated|pll1|clk[1]}]  3.000 [get_ports {DRAM_WE_N}]
-
+set_output_delay -clock [get_clocks $sdram_clk] -reference_pin [get_ports {DRAM_CLK}] -max 1.5ns [get_ports {DRAM_D* DRAM_A* DRAM_BA* DRAM_CAS_N DRAM_RAS_N DRAM_WE_N }]
+set_output_delay -clock [get_clocks $sdram_clk] -reference_pin [get_ports {DRAM_CLK}] -min -0.8ns [get_ports {DRAM_D* DRAM_A* DRAM_BA* DRAM_CAS_N DRAM_RAS_N DRAM_WE_N }]
 
 
 #**************************************************************
