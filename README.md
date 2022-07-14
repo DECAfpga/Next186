@@ -1,6 +1,8 @@
 # Next186 - DECA port 
 
-DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave (https://github.com/neptuno-fpga/Next186_SoC)
+DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave (https://github.com/neptuno-fpga/Next186_SoC).
+
+**Now compatible with [Deca Retro Cape 2](https://github.com/somhi/DECA_retro_cape_2)** (new location for 3 pins of old SDRAM modules). Otherwise see pinout below to connect everything through GPIOs.
 
 **Features:**
 
@@ -8,6 +10,7 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 * VGA 444 video output is available through GPIO (see pinout below). 
 * Audio Line out (3.5 jack green connector) and HDMI audio output
 * PWM audio is available through GPIO
+* MIDI output and MIDI I2S mixing available though an external mt32-pi synthesizer ([MIDI2SBC](https://github.com/somhi/MIDI_I2S_SBC_Pmod_Edge_Interface))
 * Requires an special SD card with BIOS  flashed into it (see notes below)
 
 **Additional hardware required**:
@@ -35,7 +38,9 @@ DECA Top level for NES by Somhic (1/11/21) adapted from Neptuno port by Distwave
 
 ![pinout_deca](pinout_deca.png)
 
-Audio SigmaDelta not connected as the diagram because of the 3 pins memory change.  See pins at Next186_SoC.qsf.
+UART not connected as diagram. See pins at Next186_SoC.qsf.
+
+MIDI_out is connected to UART_TXD as per diagram above.
 
 Joystick not available.
 

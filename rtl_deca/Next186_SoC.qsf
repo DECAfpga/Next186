@@ -38,24 +38,22 @@ set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 
 
 #============================================================
-# CLOCK
+# PIN LOCATIONS
 #============================================================
 
+#Clock
 set_location_assignment PIN_M8 -to CLOCK_50
 set_instance_assignment -name IO_STANDARD "2.5 V" -to CLOCK_50
 
 #Buttons
-set_location_assignment PIN_H21 -to BTN_SOUTH
-set_location_assignment PIN_H22 -to BTN_WEST
-set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to BTN_SOUTH
-set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to BTN_WEST
+set_location_assignment PIN_H21 -to KEY[0]
+set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to KEY[0]
+set_location_assignment PIN_H22 -to KEY[1]
+set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to KEY[1]
 
 #Leds
 set_location_assignment PIN_C7 -to SDLED
-
-#UART
-set_location_assignment PIN_V17 -to TX_EXT
-set_location_assignment PIN_W3 -to RX_EXT
+set_instance_assignment -name IO_STANDARD "1.2 V" -to SDLED
 
 #VGA
 set_location_assignment PIN_AA7 -to VGA_R[3]
@@ -73,7 +71,6 @@ set_location_assignment PIN_W6 -to VGA_VSYNC
 set_location_assignment PIN_V8 -to VGA_R[0]
 set_location_assignment PIN_AB8 -to VGA_G[0]
 set_location_assignment PIN_W8 -to VGA_B[0]
-
 
 #PS2  A=keyboard
 set_location_assignment PIN_Y5 -to PS2_CLKA
@@ -106,17 +103,24 @@ set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_nCS
 set_location_assignment PIN_P13 -to SD_SEL
 #set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_SEL
 
+
+#UART
+set_location_assignment PIN_W9 -to RX_EXT
+set_location_assignment PIN_W5 -to TX_EXT
+
 #AUDIO
-set_location_assignment PIN_W9 -to AUDIO_L
-set_location_assignment PIN_W5 -to AUDIO_R
+#SIGMA_L = DETO3
+set_location_assignment PIN_V17 -to AUDIO_L
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to AUDIO_L
+#SIGMA_R = DETO4
+set_location_assignment PIN_Y11 -to AUDIO_R
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to AUDIO_R
 
-# MIDI (used with Neptuno MIDI addon, BD signals are I2S inputs from MIDI neptuno module)
-#set_location_assignment PIN_J9 -to MIDI_OUT
-#set_location_assignment PIN_P9 -to WSBD
-#set_location_assignment PIN_R9 -to CLKBD
-#set_location_assignment PIN_W4 -to DABD
+# MIDI (used with Neptuno MIDI addon, BD signals are I2S inputs from MIDI chip sent to FPGA for mixing)
+set_location_assignment PIN_W18 -to MIDI_OUT
+set_location_assignment PIN_R9 -to WSBD
+set_location_assignment PIN_Y19 -to CLKBD
+set_location_assignment PIN_P9 -to DABD
 
 
 # Audio CODEC TLV320AIC3254
@@ -222,12 +226,9 @@ set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_INT
 set_location_assignment PIN_C11 -to HDMI_TX_VS
 set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_VS
 
-
-
 #============================================================
 # SDRAM
 #============================================================
-
 set_location_assignment PIN_Y17 -to DRAM_ADDR[0]
 set_location_assignment PIN_W14 -to DRAM_ADDR[1]
 set_location_assignment PIN_U15 -to DRAM_ADDR[2]
@@ -265,14 +266,9 @@ set_location_assignment PIN_W11 -to DRAM_RAS_N
 set_location_assignment PIN_AB10 -to DRAM_WE_N
 set_location_assignment PIN_V12 -to DRAM_CS_N
 #DQMH/L & CKE not connected in Mister new SDRAM modules
-#set_location_assignment PIN_AA16 -to DRAM_CKE
-#set_location_assignment PIN_Y11 -to DRAM_DQM[0]
-#set_location_assignment PIN_W13 -to DRAM_DQM[1]
-
-#for testing 3 pins sdram modules
-set_location_assignment PIN_W18 -to DRAM_CKE
-set_location_assignment PIN_Y19 -to DRAM_DQM[0]
-set_location_assignment PIN_AA17 -to DRAM_DQM[1]
+set_location_assignment PIN_AA16 -to DRAM_DQM[1]
+set_location_assignment PIN_AB17 -to DRAM_DQM[0]
+set_location_assignment PIN_W13 -to DRAM_CKE
 
 
 # SDRAM set_instance_assignment
@@ -442,10 +438,7 @@ set_global_assignment -name VERILOG_FILE audio/SPI_RAM.v
 set_global_assignment -name VERILOG_FILE hdmi/I2C_Controller.v
 set_global_assignment -name VERILOG_FILE hdmi/I2C_HDMI_Config.v
 
-
 ##################################
-
-
 
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top

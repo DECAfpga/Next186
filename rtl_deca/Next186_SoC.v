@@ -12,14 +12,14 @@ module Next186_SoC(
 
 	input 	CLOCK_50,
 
-	output	[12:0]DRAM_ADDR,
-	output	[1:0]DRAM_BA,
+	output	[12:0] DRAM_ADDR,
+	output	[1:0]  DRAM_BA,
 	output	DRAM_CAS_N,
 	output	DRAM_CKE,
 	output	DRAM_CLK,
 	output	DRAM_CS_N,
-	inout	[15:0]DRAM_DQ,
-	output	[1:0]DRAM_DQM,
+	inout	[15:0] DRAM_DQ,
+	output	[1:0]  DRAM_DQM,
 	output	DRAM_RAS_N,
 	output	DRAM_WE_N,
 
@@ -31,12 +31,11 @@ module Next186_SoC(
 
 	output SDLED,
 
-	input BTN_SOUTH,
-	input BTN_WEST,
+	input [1:0] KEY,
 
-	inout PS2_CLKA,
+	inout PS2_CLKA,	// A=keyboard
 	inout PS2_DATA,
-	inout PS2_CLKB,
+	inout PS2_CLKB, // B=Mouse
 	inout PS2_DATB,
 
 	output AUDIO_L,
@@ -55,10 +54,10 @@ module Next186_SoC(
 	input  RX_EXT,
 	output TX_EXT,
 
-//	output MIDI_OUT,
-//	input CLKBD,
-//	input WSBD,
-//	input DABD,
+	output MIDI_OUT,
+	input CLKBD,
+	input WSBD,
+	input DABD,
 	
 	// Audio DAC DECA
 	output wire i2sMck,			//AUDIO_MCLK
@@ -104,7 +103,7 @@ module Next186_SoC(
 
 	// AUDIO CODEC
 	wire   RESET_DELAY_n;
-	assign RESET_DELAY_n = BTN_SOUTH;
+	assign RESET_DELAY_n = KEY[0];
 
 	// Audio DAC DECA Output assignments
 	assign AUDIO_GPIO_MFP5  = 1'b1;  // GPIO
@@ -155,8 +154,7 @@ module Next186_SoC(
 	
 	assign SDLED = ~LEDS[1];
 
-	system sys_inst
-	(
+	system sys_inst    (
 		.CLK_50MHZ(CLOCK_50),
 		.VGA_R(VGA_R_out),
 		.VGA_G(VGA_G_out),
@@ -172,8 +170,8 @@ module Next186_SoC(
 		.sdr_DATA(DRAM_DQ),
 		.sdr_DQM({DRAM_DQM}),
 		.LED(LEDS),
-		.BTN_RESET(~BTN_SOUTH),
-		.BTN_NMI(~BTN_WEST),
+		.BTN_RESET(~KEY[0]),
+		.BTN_NMI(~KEY[1]),
 		.RS232_DCE_RXD(RX_EXT),
 		.RS232_DCE_TXD(TX_EXT),
 		.RS232_EXT_RXD(),
@@ -198,11 +196,10 @@ module Next186_SoC(
 		.I2S_SDIN(i2sD),
 		.I2S_SCLK(i2sSck),
 		.I2S_MCLK(i2sMck),
-		// .MIDI_OUT(MIDI_OUT),
-		// .CLKBD(CLKBD),
-		// .WSBD(WSBD),
-		// .DABD(DABD),
-
+		.MIDI_OUT(MIDI_OUT),
+		.CLKBD(CLKBD),
+		.WSBD(WSBD),
+		.DABD(DABD),
 		.VGA_DE (VGA_DE),
 		.CLK_PIX (CLOCK_HDMI)
 	);
